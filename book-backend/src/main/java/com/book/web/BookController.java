@@ -19,9 +19,10 @@ public class BookController {
         return new ResponseEntity<>(bookService.모두가져오기(), HttpStatus.OK); // 200
     }
 
+    @CrossOrigin
     @PostMapping("/book")
     public ResponseEntity<?> save(@RequestBody Book book) { // RequestBody : json으로 받음
-        return new ResponseEntity<>(bookService.저장하기(book), HttpStatus.CREATED); // 200
+        return new ResponseEntity<>(bookService.저장하기(book), HttpStatus.CREATED); // 201
     }
 
     @GetMapping("/book/{id}")
