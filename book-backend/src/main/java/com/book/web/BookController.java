@@ -25,16 +25,19 @@ public class BookController {
         return new ResponseEntity<>(bookService.저장하기(book), HttpStatus.CREATED); // 201
     }
 
+    @CrossOrigin
     @GetMapping("/book/{id}")
     public ResponseEntity<?> findById(@PathVariable Long id) {
         return new ResponseEntity<>(bookService.한건가져오기(id), HttpStatus.OK); // 200
     }
 
+    @CrossOrigin
     @PutMapping("/book/{id}")
     public ResponseEntity<?> update(@PathVariable Long id, @RequestBody Book book) {
         return new ResponseEntity<>(bookService.수정하기(id, book), HttpStatus.OK); // 200
     }
 
+    @CrossOrigin
     @DeleteMapping("/book/{id}")
     public ResponseEntity<?> deleteById(@PathVariable Long id) {
         return new ResponseEntity<>(bookService.삭제하기(id), HttpStatus.OK); // 200
